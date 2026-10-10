@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Task Flow • To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-title">
+        <span class="logo-icon" aria-hidden="true">✓</span>
+        <h1>Tasks</h1>
+      </div>
+      <p class="subtitle" id="date-display"></p>
+    </header>
+
+    <!-- Task Input Form -->
+    <form id="task-form" class="task-form">
+      <label for="task-input" class="sr-only">New task description</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="What needs to be done?"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="btn btn-primary" id="add-btn">
+          <span>Add</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Filter Controls Bar -->
+    <div class="controls-bar">
+      <div class="filter-tabs" role="group" aria-label="Filter tasks">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+        <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+      </div>
+    </div>
+
+    <!-- Task List -->
+    <main class="list-wrapper">
+      <ul id="task-list" class="task-list"></ul>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">📝</div>
+        <p class="empty-text">No tasks here yet!</p>
+        <span class="empty-subtext">Add a task above to get started.</span>
+      </div>
+    </main>
+
+    <!-- Footer Stats & Actions -->
+    <footer class="app-footer">
+      <span id="task-counter" class="task-counter" aria-live="polite">0 tasks left</span>
+      <button type="button" id="clear-completed-btn" class="clear-btn" title="Remove all completed tasks">
+        Clear completed
+      </button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
